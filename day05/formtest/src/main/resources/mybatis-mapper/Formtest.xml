@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.formtest.mapper.FormtestMapper">
 
+<!-- 맵퍼 경로 설정-->
+<mapper namespace="com.example.formtest.mapper.FormtestMapper">
+    <!-- insert 문 만들기 -->
     <insert id="insertForm" parameterType="HashMap">
         insert into formtest
             (name, phone, email, password, gender)

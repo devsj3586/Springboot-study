@@ -7,7 +7,9 @@ import java.util.HashMap;
 
 @Mapper
 public interface FormtestMapper {
-    ArrayList<HashMap<String, String>> insertForm ();
+    // XML에서 가져오기
+    String insertForm (HashMap<String, String> params);
+
 }
 
 
