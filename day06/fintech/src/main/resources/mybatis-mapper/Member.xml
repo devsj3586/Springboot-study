@@ -3,7 +3,7 @@
 
 
 <!-- 맵퍼 경로 설정-->
-<mapper namespace="com.example.fintech.mapper.FintechMapper">
+<mapper namespace="com.example.fintech.mapper.MemberMapper">
     <!-- insert 문 만들기 -->
     <insert id="insertMember" parameterType="com.example.fintech.member.dto.MemberDto">
         insert into member
@@ -12,9 +12,9 @@
     </insert>
 
 
-    <select id="loginMember" parameterType="com.example.fintech.member.dto.MemberDto" resultType="com.example.fintech.member.dto.MemberDto">
+    <select id="loginMember" resultType="com.example.fintech.member.dto.MemberDto">
         SELECT email
-        FROM membera
+        FROM member
         where email = #{email}
           and password = #{password}
     </select>

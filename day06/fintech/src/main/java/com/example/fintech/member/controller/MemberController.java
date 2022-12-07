@@ -21,16 +21,12 @@ public class MemberController {
 
     @PostMapping("/login")
     public String login(String email, String password, HttpSession session) {
-        System.out.println(email + password);
         MemberDto loginMember = ms.loginMember(email, password);
-        System.out.println(loginMember);
         if (loginMember != null) {
             session.setAttribute("email", email);
             return "index";
         }
         return "login";
     }
-
-
 }
 
