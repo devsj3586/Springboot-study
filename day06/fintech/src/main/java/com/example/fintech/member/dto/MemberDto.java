@@ -7,7 +7,6 @@ public class MemberDto {
     private String phone;
     private String address;
     private String detail;
-    private String indate;
 
     public MemberDto () {}
 
@@ -18,7 +17,6 @@ public class MemberDto {
         this.phone = phone;
         this.address = address;
         this.detail = detail;
-        this.indate = indate;
     }
 
     public String getEmail() {
@@ -69,14 +67,6 @@ public class MemberDto {
         this.detail = detail;
     }
 
-    public String getIndate() {
-        return indate;
-    }
-
-    public void setIndate(String indate) {
-        this.indate = indate;
-    }
-
     @Override
     public String toString() {
         return "MemberDto{" +
@@ -86,7 +76,6 @@ public class MemberDto {
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
                 ", detail='" + detail + '\'' +
-                ", indate='" + indate + '\'' +
                 '}';
     }
 }
