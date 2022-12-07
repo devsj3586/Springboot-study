@@ -11,5 +11,11 @@
         VALUES (#{name}, #{email}, #{phone}, #{message})
     </insert>
 
+    <insert id="insertSubscribe" parameterType="com.example.fintech.contact.dto.SubscribeDto">
+        INSERT INTO subscribe
+            (email)
+        VALUES (#{email})
+    </insert>
+
 
 </mapper>

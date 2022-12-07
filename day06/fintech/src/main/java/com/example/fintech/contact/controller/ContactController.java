@@ -1,6 +1,7 @@
 package com.example.fintech.contact.controller;
 
 import com.example.fintech.contact.dto.ContactDto;
+import com.example.fintech.contact.dto.SubscribeDto;
 import com.example.fintech.contact.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,5 +17,11 @@ public class ContactController {
     public String requestCall (ContactDto contactDto) {
         cs.insertContact(contactDto);
         return "redirect:/";
+    }
+
+    @PostMapping("/subscribe")
+    public String insertSubscribe(SubscribeDto subscribeDto){
+        cs.insertSubscribe(subscribeDto);
+        return "index";
     }
 }
