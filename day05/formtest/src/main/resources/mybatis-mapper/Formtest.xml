@@ -11,4 +11,13 @@
         values (#{name}, #{phone}, #{email}, #{password}, #{gender})
     </insert>
 
+    <select id="selectForm" parameterType="String">
+        SELECT email from formtest where email = #{email}
+    </select>
+
+    <select id="loginMember" resultType="HashMap">
+        SELECT *
+        FROM formtest
+        WHERE email = #{email}
+    </select>
 </mapper>

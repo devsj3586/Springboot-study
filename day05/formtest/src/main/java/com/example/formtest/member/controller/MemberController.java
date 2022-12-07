@@ -1,14 +1,10 @@
 package com.example.formtest.member.controller;
 
-import com.example.formtest.service.FormtestService;
+import com.example.formtest.member.service.FormtestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 @Controller
@@ -23,5 +19,9 @@ public class MemberController {
         fs.insertForm(params);
         return "index";
     }
-
+    @PostMapping("/login")
+    public String loginMember(HashMap<String,String> param){
+        fs.loginMember(param);
+        return "index";
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.formtest.repository;
+package com.example.formtest.member.repository;
 
 import com.example.formtest.mapper.FormtestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +13,17 @@ public class FormtestRepository {
     @Autowired
     FormtestMapper mapper;
     // HashMap으로 params가져오기
-    public String insertForm(HashMap<String, String> params) {
+    public void insertForm(HashMap<String, String> params) {
         // 반환
-        return mapper.insertForm(params);
+         mapper.insertForm(params);
+    }
+
+    public void selectForm (String email) {
+        mapper.selectForm(email);
+    }
+
+    public void loginMember(HashMap<String,String> param){
+        mapper.loginMember(param);
     }
 
 }

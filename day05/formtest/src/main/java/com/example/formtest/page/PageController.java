@@ -1,4 +1,4 @@
-package com.example.formtest.page.controller;
+package com.example.formtest.page;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
