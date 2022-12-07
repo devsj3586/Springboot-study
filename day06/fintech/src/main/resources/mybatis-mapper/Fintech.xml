@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 맵퍼 경로 설정-->
+<mapper namespace="com.example.fintech.mapper.FintechMapper">
+    <!-- insert 문 만들기 -->
+    <insert id="insertMember" parameterType="com.example.fintech.member.dto.MemberDto">
+        insert into member
+            (email, password, name, phone, address, detail)
+        values (#{email}, #{password}, #{name}, #{phone}, #{address}, #{detail})
+    </insert>
+
+
+    <select id="loginMember" parameterType="com.example.fintech.member.dto.MemberDto" resultType="com.example.fintech.member.dto.MemberDto">
+        SELECT email
+        FROM membera
+        where email = #{email}
+          and password = #{password}
+    </select>
+
+</mapper>
