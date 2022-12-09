@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 public class ContactService {
 
     @Autowired
-    ContactRepository cs;
+    ContactRepository cr;
 
     public  int insertContact (ContactDto contactDto) {
-        return cs.insertContact(contactDto);
+        return cr.insertContact(contactDto);
     }
     public int insertSubscribe(SubscribeDto subscribeDto){
-        return cs.insertSubscribe(subscribeDto);
+        return cr.insertSubscribe(subscribeDto);
     }
 }
