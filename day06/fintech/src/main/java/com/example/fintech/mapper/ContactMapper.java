@@ -8,7 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface ContactMapper {
 
     int insertContact (ContactDto contactDto);
-
     int insertSubscribe(SubscribeDto subscribeDto);
 
 }

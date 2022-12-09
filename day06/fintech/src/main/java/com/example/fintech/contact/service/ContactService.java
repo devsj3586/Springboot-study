@@ -18,4 +18,5 @@ public class ContactService {
     public int insertSubscribe(SubscribeDto subscribeDto){
         return cr.insertSubscribe(subscribeDto);
     }
+
 }

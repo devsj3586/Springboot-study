@@ -12,7 +12,7 @@ public class ContactRepository {
     ContactMapper mapper;
 
     public  int insertContact (ContactDto contactDto) {
-       return mapper.insertContact(contactDto);
+        return mapper.insertContact(contactDto);
     }
 
     public int insertSubscribe(SubscribeDto subscribeDto){
