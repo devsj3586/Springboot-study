@@ -18,13 +18,23 @@ public class AdminController {
     @Autowired
     AdminService as;
 
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        System.out.println("session = " + session);
+        return "redirect:/";
+    }
+
     @PostMapping("/login")
     public String loginAdmin(@RequestParam HashMap<String, String> param, HttpSession session) {
         HashMap<String, Object> result = as.loginAdmin(param);
-        if (result == null) {
-            return "redirect:/";
+        if (result != null) {
+            String email = String.valueOf(result.get("email"));
+            session.setAttribute("email", email);
+            System.out.println("session = " + session);
+            return "redirect:/index";
         }
-        return "redirect:/index";
+        return "redirect:/";
     }
 
     @GetMapping("/selectMember")
