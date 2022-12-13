@@ -13,22 +13,28 @@
 
 
     <select id="selectCntMember" resultType="int">
-        SELECT
-            count(*)
-        FROM
-            member
+        SELECT count(*)
+        FROM member
     </select>
 
     <select id="selectAmountPayment" resultType="double">
-        SELECT SUM(amount) FROM payment;
+        SELECT SUM(amount)
+        FROM payment;
     </select>
 
 
     <select id="selectCntBuy" resultType="int">
-        SELECT  COUNT(*) FROM buy;
+        SELECT COUNT(*)
+        FROM buy;
     </select>
 
     <select id="selectCntContact" resultType="int">
-        SELECT COUNT(*) FROM Contact;
+        SELECT COUNT(*)
+        FROM Contact;
+    </select>
+
+    <select id="selectMember" resultType="HashMap">
+        SELECT email, name, phone, address, detail, DATE_FORMAT(indate, '%Y-%m-%d %H:%i') indate
+        FROM member;
     </select>
 </mapper>

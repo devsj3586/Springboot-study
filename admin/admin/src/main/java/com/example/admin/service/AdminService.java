@@ -11,8 +11,13 @@ import java.util.HashMap;
 public class AdminService {
     @Autowired
     AdminRepository ar;
-    public HashMap<String,Object> loginAdmin(HashMap<String,String> param){
+
+    public HashMap<String, Object> loginAdmin(HashMap<String, String> param) {
         return ar.loginAdmin(param);
+    }
+
+    public ArrayList<HashMap<String, Object>> selectMember() {
+        return ar.selectMember();
     }
 
     public int selectCntMember() {
@@ -26,6 +31,7 @@ public class AdminService {
     public int selectCntBuy() {
         return ar.selectCntBuy();
     }
+
     public int selectCntContact() {
         return ar.selectCntContact();
     }

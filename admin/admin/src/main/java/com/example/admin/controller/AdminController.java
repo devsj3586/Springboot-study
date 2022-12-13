@@ -27,6 +27,11 @@ public class AdminController {
         return "redirect:/index";
     }
 
+    @GetMapping("/selectMember")
+    public @ResponseBody ArrayList<HashMap<String, Object>> selectMember() {
+        return as.selectMember();
+    }
+
     @GetMapping("/selectCntMember")
     public @ResponseBody int selectCntMember() {
         return as.selectCntMember();
@@ -36,10 +41,12 @@ public class AdminController {
     public @ResponseBody double selectAmountPayment() {
         return as.selectAmountPayment();
     }
+
     @GetMapping("/selectCntBuy")
     public @ResponseBody int selectCntBuy() {
         return as.selectCntBuy();
     }
+
     @GetMapping("/selectCntContact")
     public @ResponseBody int selectCntContact() {
         return as.selectCntContact();

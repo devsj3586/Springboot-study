@@ -13,19 +13,26 @@ public class AdminRepository {
     @Autowired
     AdminMapper mapper;
 
-    public HashMap<String,Object> loginAdmin(HashMap<String,String> param){
+    public HashMap<String, Object> loginAdmin(HashMap<String, String> param) {
         return mapper.loginAdmin(param);
+    }
+
+    public ArrayList<HashMap<String, Object>> selectMember() {
+        return mapper.selectMember();
     }
 
     public int selectCntMember() {
         return mapper.selectCntMember();
     }
+
     public double selectAmountPayment() {
         return mapper.selectAmountPayment();
     }
+
     public int selectCntBuy() {
         return mapper.selectCntBuy();
     }
+
     public int selectCntContact() {
         return mapper.selectCntContact();
     }
