@@ -29,6 +29,10 @@ public class AdminRepository {
         return mapper.selectBuy();
     }
 
+    public ArrayList<HashMap<String, Object>> selectContact() {
+        return mapper.selectContact();
+    }
+
     public int selectCntMember() {
         return mapper.selectCntMember();
     }

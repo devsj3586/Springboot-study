@@ -55,5 +55,15 @@
         FROM buy;
     </select>
 
+    <select id="selectContact" resultType="HashMap">
+        SELECT id,
+               name,
+               email,
+               phone,
+               message,
+               DATE_FORMAT(indate, '%Y-%m-%d %H:%i') indate
+        FROM contact;
+    </select>
+
 
 </mapper>

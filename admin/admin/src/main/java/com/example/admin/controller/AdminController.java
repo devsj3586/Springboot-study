@@ -42,6 +42,11 @@ public class AdminController {
         return as.selectBuy();
     }
 
+    @GetMapping("/selectContact")
+    public @ResponseBody ArrayList<HashMap<String, Object>> selectContact() {
+        return as.selectContact();
+    }
+
     @GetMapping("/selectCntMember")
     public @ResponseBody int selectCntMember() {
         return as.selectCntMember();
