@@ -37,4 +37,10 @@
         SELECT email, name, phone, address, detail, DATE_FORMAT(indate, '%Y-%m-%d %H:%i') indate
         FROM member;
     </select>
+
+    <select id="selectPayment" resultType="HashMap">
+        SELECT id, email, amount, uid, DATE_FORMAT(indate, '%Y-%m-%d %H:%i') indate
+        FROM payment;
+    </select>
+
 </mapper>

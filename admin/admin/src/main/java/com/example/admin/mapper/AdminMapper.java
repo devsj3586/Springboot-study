@@ -12,6 +12,8 @@ public interface AdminMapper {
 
     ArrayList<HashMap<String, Object>> selectMember();
 
+    ArrayList<HashMap<String, Object>> selectPayment();
+
     int selectCntMember();
 
     double selectAmountPayment();

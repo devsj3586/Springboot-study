@@ -20,6 +20,10 @@ public class AdminService {
         return ar.selectMember();
     }
 
+    public ArrayList<HashMap<String, Object>> selectPayment() {
+        return ar.selectPayment();
+    }
+
     public int selectCntMember() {
         return ar.selectCntMember();
     }
