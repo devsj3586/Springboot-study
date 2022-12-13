@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 맵퍼 경로 설정-->
+<mapper namespace="com.example.fintech.mapper.ContactMapper">
+
+    <insert id="insertPoint" parameterType="com.example.fintech.point.dto.PointDto">
+        INSERT INTO payment
+            (email, amount, uid)
+        VALUES (#{email}, #{amount}, #{uid})
+    </insert>
+
+    <select id="selectPoint" parameterType="com.example.fintech.point.dto.PointDto" resultType="com.example.fintech.point.dto.PointDto">
+        SELECT id
+             , amount
+             , DATE_FORMAT(indate, '%Y-%m-%d %H:%i') indate
+        FROM payment
+        WHERE email = #{email}
+        order by indate DESC
+    </select>
+
+
+    <select id="checkBalance" parameterType="com.example.fintech.point.dto.PointDto" resultType="double">
+        select IFNULL((select sum(amount) from payment where email = #{email}), 0) -
+               IFNULL((select sum(total) from buy where email = #{email}), 0)
+        from dual
+
+    </select>
+
+
+</mapper>
