@@ -43,4 +43,17 @@
         FROM payment;
     </select>
 
+    <select id="selectBuy" resultType="HashMap">
+        SELECT id,
+               email,
+               coinId,
+               name,
+               price,
+               amount,
+               total,
+               DATE_FORMAT(indate, '%Y-%m-%d %H:%i') indate
+        FROM buy;
+    </select>
+
+
 </mapper>
