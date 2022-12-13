@@ -20,5 +20,9 @@ public class AdminRepository {
     public int selectCntMember() {
         return mapper.selectCntMember();
     }
+    public double selectAmountPayment() {
+        return mapper.selectAmountPayment();
+    }
+
 
 }

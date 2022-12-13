@@ -31,4 +31,11 @@ public class AdminController {
     public @ResponseBody int selectCntMember() {
         return as.selectCntMember();
     }
+
+    @GetMapping("/selectAmountPayment")
+    public @ResponseBody double selectAmountPayment() {
+        return as.selectAmountPayment();
+    }
+
+
 }
