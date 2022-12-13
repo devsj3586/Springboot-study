@@ -26,4 +26,7 @@ public class AdminService {
     public int selectCntBuy() {
         return ar.selectCntBuy();
     }
+    public int selectCntContact() {
+        return ar.selectCntContact();
+    }
 }

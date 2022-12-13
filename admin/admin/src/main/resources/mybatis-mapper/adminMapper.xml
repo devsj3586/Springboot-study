@@ -27,4 +27,8 @@
     <select id="selectCntBuy" resultType="int">
         SELECT  COUNT(*) FROM buy;
     </select>
+
+    <select id="selectCntContact" resultType="int">
+        SELECT COUNT(*) FROM Contact;
+    </select>
 </mapper>

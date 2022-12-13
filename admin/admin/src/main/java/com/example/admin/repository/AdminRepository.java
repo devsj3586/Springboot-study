@@ -23,8 +23,11 @@ public class AdminRepository {
     public double selectAmountPayment() {
         return mapper.selectAmountPayment();
     }
-
     public int selectCntBuy() {
         return mapper.selectCntBuy();
     }
+    public int selectCntContact() {
+        return mapper.selectCntContact();
+    }
+
 }
