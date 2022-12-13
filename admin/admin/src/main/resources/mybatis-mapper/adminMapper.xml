@@ -65,5 +65,10 @@
         FROM contact;
     </select>
 
+    <select id="selectSubscribe" resultType="HashMap">
+        SELECT email, DATE_FORMAT(indate, '%Y-%m-%d %H:%i') indate
+        FROM subscribe;
+    </select>
+
 
 </mapper>

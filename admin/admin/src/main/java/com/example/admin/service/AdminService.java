@@ -32,6 +32,10 @@ public class AdminService {
         return ar.selectContact();
     }
 
+    public ArrayList<HashMap<String, Object>> selectSubscribe() {
+        return ar.selectSubscribe();
+    }
+
     public int selectCntMember() {
         return ar.selectCntMember();
     }
