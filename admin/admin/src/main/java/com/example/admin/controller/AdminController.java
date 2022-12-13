@@ -36,6 +36,9 @@ public class AdminController {
     public @ResponseBody double selectAmountPayment() {
         return as.selectAmountPayment();
     }
-
+    @GetMapping("/selectCntBuy")
+    public @ResponseBody int selectCntBuy() {
+        return as.selectCntBuy();
+    }
 
 }

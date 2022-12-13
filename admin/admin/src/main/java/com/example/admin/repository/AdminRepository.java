@@ -24,5 +24,7 @@ public class AdminRepository {
         return mapper.selectAmountPayment();
     }
 
-
+    public int selectCntBuy() {
+        return mapper.selectCntBuy();
+    }
 }

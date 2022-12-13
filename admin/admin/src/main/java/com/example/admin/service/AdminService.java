@@ -23,5 +23,7 @@ public class AdminService {
         return ar.selectAmountPayment();
     }
 
-
+    public int selectCntBuy() {
+        return ar.selectCntBuy();
+    }
 }

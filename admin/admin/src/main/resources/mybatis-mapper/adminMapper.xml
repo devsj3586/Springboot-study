@@ -23,4 +23,8 @@
         SELECT SUM(amount) FROM payment;
     </select>
 
+
+    <select id="selectCntBuy" resultType="int">
+        SELECT  COUNT(*) FROM buy;
+    </select>
 </mapper>

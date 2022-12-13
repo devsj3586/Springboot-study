@@ -15,6 +15,6 @@ public interface AdminMapper {
     int selectCntMember();
     double selectAmountPayment();
 
-
+    int selectCntBuy();
 
 }
