@@ -21,7 +21,6 @@ public class AdminController {
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        System.out.println("session = " + session);
         return "redirect:/";
     }
 
@@ -31,7 +30,6 @@ public class AdminController {
         if (result != null) {
             String email = String.valueOf(result.get("email"));
             session.setAttribute("email", email);
-            System.out.println("session = " + session);
             return "redirect:/index";
         }
         return "redirect:/";
