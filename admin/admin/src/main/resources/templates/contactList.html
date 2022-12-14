@@ -245,22 +245,22 @@
 
 <!-- Page level custom scripts -->
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         $.ajax({
             url: "/selectContact",
             dataType: "json",
             success: function (data) {
-                let con='';
-                for(let i=0;i<data.length;i++){
-                    con+='<tr>';
-                    con+='<td>'+data[i].id+'</td>';
-                    con+='<td>'+data[i].name+'</td>';
-                    con+='<td>'+data[i].email+'</td>';
-                    con+='<td>'+data[i].phone+'</td>';
-                    con+='<td>'+data[i].message+'</td>';
-                    con+='<td>'+data[i].indate+'</td>';
-                    con+='</tr>';
+                let con = '';
+                for (let i = 0; i < data.length; i++) {
+                    con += '<tr>';
+                    con += '<td>' + data[i].id + '</td>';
+                    con += '<td>' + data[i].name + '</td>';
+                    con += '<td>' + data[i].email + '</td>';
+                    con += '<td>' + data[i].phone + '</td>';
+                    con += '<td>' + data[i].message + '</td>';
+                    con += '<td>' + data[i].indate + '</td>';
+                    con += '</tr>';
                 }
                 $('#tbody').html(con);
                 $('#dataTable').DataTable();
