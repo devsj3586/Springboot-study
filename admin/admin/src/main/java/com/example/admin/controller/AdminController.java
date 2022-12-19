@@ -1,6 +1,8 @@
 package com.example.admin.controller;
 
 import com.example.admin.service.AdminService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+@Api(tags = {"관리자서비스"}, description = "관리자 관련 서비스")
 @RestController
 public class AdminController {
 
@@ -49,6 +52,7 @@ public class AdminController {
         return as.selectAmountPayment();
     }
 
+    @ApiOperation(value = "총 포인트 판매량", notes = "총 포인트 판매량을 조회한다")
     @GetMapping("/selectCntBuy")
     public int selectCntBuy() {
         return as.selectCntBuy();
