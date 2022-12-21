@@ -10,4 +10,22 @@
                 #{addressdetail}, #{postcode})
     </insert>
 
+    <select id="login" resultType="com.example.shop.member.dto.Member">
+        SELECT id,
+               pw,
+               name,
+               phone,
+               address,
+               email,
+               gender,
+               sns,
+               birth,
+               addressdetail,
+               postcode
+        FROM CUSTOMER
+        WHERE id = #{id}
+          AND pw = #{pw}
+          AND ismem = 'Y'
+    </select>
+
 </mapper>
