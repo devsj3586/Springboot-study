@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
 public class MemberController {
 
@@ -13,7 +15,26 @@ public class MemberController {
     MemberService ms;
 
     @PostMapping("/signup")
-    public int signup (Member member) {
-        return  ms.signup(member);
+    public int signup(Member member) {
+        return ms.signup(member);
+    }
+
+    @PostMapping("/login")
+    public Member login(Member member, HttpSession session) {
+        Member loginMember = ms.login(member);
+        if (loginMember != null) {
+            session.setAttribute("id", loginMember);
+            return loginMember;
+        }
+        return null;
+    }
+
+    @PostMapping("/logout")
+    public String logout (HttpSession session) {
+        if (session.getAttribute("id") !=null) {
+            session.invalidate();
+            return "success";
+        }
+        return "failed";
     }
 }

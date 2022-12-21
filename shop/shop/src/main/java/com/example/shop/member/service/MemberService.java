@@ -15,4 +15,7 @@ public class MemberService {
         return mr.signup(member);
     }
 
+    public Member login(Member member) {
+        return mr.login(member);
+    }
 }

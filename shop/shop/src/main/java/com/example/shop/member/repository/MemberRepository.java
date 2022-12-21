@@ -14,4 +14,8 @@ public class MemberRepository {
     public int signup(Member member){
         return mapper.signup(member);
     }
+
+    public Member login(Member member) {
+        return mapper.login(member);
+    }
 }

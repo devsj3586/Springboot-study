@@ -8,4 +8,6 @@ public interface MemberMapper {
 
     public int signup(Member member);
 
+    Member login(Member member);
+
 }
