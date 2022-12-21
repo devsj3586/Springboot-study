@@ -11,13 +11,13 @@ public class Member {
     private String gender;
     private String sns;
     private String birth;
-    private String addressdetail;
+    private String addressDetail;
     private String postcode;
 
     public Member() {
     }
 
-    public Member(String id, String pw, String name, String phone, String address, String email, String gender, String sns, String birth, String addressdetail, String postcode) {
+    public Member(String id, String pw, String name, String phone, String address, String email, String gender, String sns, String birth, String addressDetail, String postcode) {
         this.id = id;
         this.pw = pw;
         this.name = name;
@@ -27,7 +27,7 @@ public class Member {
         this.gender = gender;
         this.sns = sns;
         this.birth = birth;
-        this.addressdetail = addressdetail;
+        this.addressDetail = addressDetail;
         this.postcode = postcode;
     }
 
@@ -104,11 +104,11 @@ public class Member {
     }
 
     public String getAddressdetail() {
-        return addressdetail;
+        return addressDetail;
     }
 
     public void setAddressdetail(String addressdetail) {
-        this.addressdetail = addressdetail;
+        this.addressDetail = addressdetail;
     }
 
     public String getPostcode() {
@@ -131,7 +131,7 @@ public class Member {
                 ", gender='" + gender + '\'' +
                 ", sns='" + sns + '\'' +
                 ", birth='" + birth + '\'' +
-                ", addressdetail='" + addressdetail + '\'' +
+                ", addressDetail='" + addressDetail + '\'' +
                 ", postcode='" + postcode + '\'' +
                 '}';
     }
