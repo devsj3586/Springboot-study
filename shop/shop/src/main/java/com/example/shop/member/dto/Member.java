@@ -103,12 +103,12 @@ public class Member {
         this.birth = birth;
     }
 
-    public String getAddressdetail() {
+    public String getAddressDetail() {
         return addressDetail;
     }
 
-    public void setAddressdetail(String addressdetail) {
-        this.addressDetail = addressdetail;
+    public void setAddressDetail(String addressDetail) {
+        this.addressDetail = addressDetail;
     }
 
     public String getPostcode() {
