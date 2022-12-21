@@ -10,7 +10,7 @@
                 #{addressdetail}, #{postcode})
     </insert>
 
-    <select id="login" resultType="com.example.shop.member.dto.Member">
+    <select id="login" parameterType="com.example.shop.member.dto.Member" resultType="com.example.shop.member.dto.Member">
         SELECT id,
                pw,
                name,
