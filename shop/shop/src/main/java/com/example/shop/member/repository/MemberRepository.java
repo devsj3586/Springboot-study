@@ -11,7 +11,7 @@ public class MemberRepository {
     @Autowired
     MemberMapper mapper;
 
-    public int signup(Member member){
+    public int signup(Member member) {
         return mapper.signup(member);
     }
 
