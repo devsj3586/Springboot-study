@@ -21,7 +21,7 @@ public class SwaggerConfig {
                 .apiInfo(swaggerInfo())
                 .groupName("Test")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.crypto.admin"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.admin"))
                 .paths(PathSelectors.ant("/**"))
                 .build()
                 .useDefaultResponseMessages(false);

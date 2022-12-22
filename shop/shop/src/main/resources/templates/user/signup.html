@@ -2,223 +2,224 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<meta charset="utf-8">
-<!--
+    <meta charset="utf-8">
+    <!--
 
-Template 2082 Pure Mix
+    Template 2082 Pure Mix
 
-http://www.tooplate.com/view/2082-pure-mix
+    http://www.tooplate.com/view/2082-pure-mix
 
--->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="keywords" content="">
-	<meta name="description" content="">
+    -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
 
-	<!-- Site title
+    <!-- Site title
    ================================================== -->
-	<title>Xenium</title>
+    <title>Xenium</title>
 
-	<!-- Bootstrap CSS
+    <!-- Bootstrap CSS
    ================================================== -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
-	<!-- Animate CSS
+    <!-- Animate CSS
    ================================================== -->
-	<link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
 
-	<!-- Font Icons CSS
+    <!-- Font Icons CSS
    ================================================== -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
 
-	<!-- Main CSS
+    <!-- Main CSS
    ================================================== -->
-	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
-	<!-- Google web font 
-   ================================================== -->	
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-  function testForm(){
+    <!-- Google web font
+   ================================================== -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function testForm() {
 
-	  let id=$("#id").val();
-	  let pw=$("#pw").val();
-	  let pwcon=$("#pwcon").val();
-	  let name=$("#name").val();
-	  let phone=$("#phone").val();
-	  let address=$("#address").val();
-	  let addressDetail=$("#addressDetail").val();
-	  let email=$("#email").val();
-	  let gender=$("#gender").val();
-	  let sns=$("#sns").val();
-	  let birth=$("#birth").val();
-	  let regPhone = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
-      
-	  
-	  if (!$('input.checkbox_check').is(':checked')) {
-		  $("#warning").text("이용약관에 동의는 필수입니다.");
-		  return false;
-	  }
-	  
-	  if(id.length<6 || id.length > 16){
-		  $("#warning").text("ID 값은 7자 이상 15자 이하로 해주세요.");
-		  return false;
-	  }
-	  
-	  if(pw.length<6 || pw.length > 16){
-		  $("#warning").text("비밀번호 값은 7자 이상 15자 이하로 해주세요.");
-		  return false;
-	  }
-	  
-	  if(pw!=pwcon){
-		  $("#warning").text("비밀번호와 확인값이 일치하지 않습니다.");
-		  return false;
-	  }
-
-	  if(address==''){
-		  $("#warning").text("주소 값이 없습니다.");
-		  return false;
-	  }
-
-	  if(addressDetail==''){
-		  $("#warning").text("세부주소 값이 없습니다.");
-		  return false;
-	  }
-	  
-	  if(phone==''){
-		  $("#warning").text("연락처 값이 없습니다.");
-		  return false;
-	  }
-	  
-	  if(email==''){
-		  $("#warning").text("이메일 값이 없습니다.");
-		  return false;
-	  }
-
-	  if(!isEmail(email)){
-		  $("#warning").text("이메일 형식에 맞지 앖습니다.");
-		  return false;
-	  }
-	  if (!regPhone.test(phone) === true) {
-		  $("#warning").text("올바른 전화번호형식이 아닙니다.");
-		  return false;
-      }else{
-		  var regNumber = /[^0-9]/g;
-		  phone = phone.replace(regNumber, "");
-	  }
-	  
-	  if(birth!=''){
-		  if(!isNumeric(birth)){
-			  $("#warning").text("생년월일은 숫자만 입력해주세요");
-			  return false; 
-		  }
-	  }
-
-	  $.ajax({
-		  type : "POST",
-		  url : "/signup", //요청 할 URL
-		  data : {
-			  'id':id,
-			  'pw':pw,
-			  'name':name,
-			  'phone':phone,
-			  'address':address,
-			  'addressDetail':addressDetail,
-			  'email':email,
-			  'gender':gender,
-			  'sns':sns,
-			  'birth':birth
-		  }, //넘길 파라미터
-		  success : function(data) {
-			  //통신이 정상적으로 되었을때 실행 할 내용
-			  if(data != null)    {
-				  if(data == "1"){
-
-					  alert('회원가입에 성공하였습니다.');
-					  location.href="/";
-				  }else{
-
-					  $("#warning").text("겹치는 아이디가 있습니다.");
-
-				  }
-			  }
-
-		  },
-		  error : function(data) {
-			  $("#warning").text("접속 도중 오류가 발생했습니다.");
-		  }
-	  });
+            let id = $("#id").val();
+            let pw = $("#pw").val();
+            let pwcon = $("#pwcon").val();
+            let name = $("#name").val();
+            let phone = $("#phone").val();
+            let address = $("#address").val();
+            let addressDetail = $("#addressDetail").val();
+            let email = $("#email").val();
+            let gender = $("#gender").val();
+            let sns = $("#sns").val();
+            let birth = $("#birth").val();
+            let regPhone = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
 
 
-	  return true;
-  }
-  function isNumeric(str) {
-	  if (typeof str != "string") return false // we only process strings!  
-	  return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
-	         !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
-	}
+            if (!$('input.checkbox_check').is(':checked')) {
+                $("#warning").text("이용약관에 동의는 필수입니다.");
+                return false;
+            }
 
-  function isEmail(email) {
-	  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-	  return regex.test(email);
-	}
-  
-  function searchAddress(){
+            if (id.length < 6 || id.length > 16) {
+                $("#warning").text("ID 값은 7자 이상 15자 이하로 해주세요.");
+                return false;
+            }
 
-		new daum.Postcode({
-	            oncomplete: function(data) {
-	                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+            if (pw.length < 6 || pw.length > 16) {
+                $("#warning").text("비밀번호 값은 7자 이상 15자 이하로 해주세요.");
+                return false;
+            }
 
-	                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-	                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-	                var addr = ''; // 주소 변수
-	                var extraAddr = ''; // 참고항목 변수
+            if (pw != pwcon) {
+                $("#warning").text("비밀번호와 확인값이 일치하지 않습니다.");
+                return false;
+            }
 
-	                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-	                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-	                    addr = data.roadAddress;
-	                } else { // 사용자가 지번 주소를 선택했을 경우(J)
-	                    addr = data.jibunAddress;
-	                }
+            if (address == '') {
+                $("#warning").text("주소 값이 없습니다.");
+                return false;
+            }
 
-	                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
-	                if(data.userSelectedType === 'R'){
-	                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-	                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-	                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-	                        extraAddr += data.bname;
-	                    }
-	                    // 건물명이 있고, 공동주택일 경우 추가한다.
-	                    if(data.buildingName !== '' && data.apartment === 'Y'){
-	                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-	                    }
-	                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-	                    if(extraAddr !== ''){
-	                        extraAddr = ' (' + extraAddr + ')';
-	                    }
-	                    // 조합된 참고항목을 해당 필드에 넣는다.
-	                    document.getElementById("address").value = extraAddr;
-	                    document.getElementById("postcode").value = data.zonecode;
-	                
-	                } else {
-	                    document.getElementById("address").value = '';
-	                }
+            if (addressDetail == '') {
+                $("#warning").text("세부주소 값이 없습니다.");
+                return false;
+            }
 
-	                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-	                //document.getElementById('cstmrZipcode').value = data.zonecode;
-	                document.getElementById("address").value = addr;
+            if (phone == '') {
+                $("#warning").text("연락처 값이 없습니다.");
+                return false;
+            }
+
+            if (email == '') {
+                $("#warning").text("이메일 값이 없습니다.");
+                return false;
+            }
+
+            if (!isEmail(email)) {
+                $("#warning").text("이메일 형식에 맞지 앖습니다.");
+                return false;
+            }
+            if (!regPhone.test(phone) === true) {
+                $("#warning").text("올바른 전화번호형식이 아닙니다.");
+                return false;
+            } else {
+                var regNumber = /[^0-9]/g;
+                phone = phone.replace(regNumber, "");
+            }
+
+            if (birth != '') {
+                if (!isNumeric(birth)) {
+                    $("#warning").text("생년월일은 숫자만 입력해주세요");
+                    return false;
+                }
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/signup", //요청 할 URL
+                data: {
+                    'id': id,
+                    'pw': pw,
+                    'name': name,
+                    'phone': phone,
+                    'address': address,
+                    'addressDetail': addressDetail,
+                    'email': email,
+                    'gender': gender,
+                    'sns': sns,
+                    'birth': birth
+                }, //넘길 파라미터
+                success: function (data) {
+                    //통신이 정상적으로 되었을때 실행 할 내용
+                    if (data != null) {
+                        if (data == "1") {
+
+                            alert('회원가입에 성공하였습니다.');
+                            location.href = "/";
+                        } else {
+
+                            $("#warning").text("겹치는 아이디가 있습니다.");
+
+                        }
+                    }
+
+                },
+                error: function (data) {
+                    $("#warning").text("접속 도중 오류가 발생했습니다.");
+                }
+            });
+
+
+            return true;
+        }
+
+        function isNumeric(str) {
+            if (typeof str != "string") return false // we only process strings!
+            return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+                !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+        }
+
+        function isEmail(email) {
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            return regex.test(email);
+        }
+
+        function searchAddress() {
+
+            new daum.Postcode({
+                oncomplete: function (data) {
+                    // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                    // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                    // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                    var addr = ''; // 주소 변수
+                    var extraAddr = ''; // 참고항목 변수
+
+                    //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                    if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                        addr = data.roadAddress;
+                    } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                        addr = data.jibunAddress;
+                    }
+
+                    // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                    if (data.userSelectedType === 'R') {
+                        // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                        // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                        if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                            extraAddr += data.bname;
+                        }
+                        // 건물명이 있고, 공동주택일 경우 추가한다.
+                        if (data.buildingName !== '' && data.apartment === 'Y') {
+                            extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                        }
+                        // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                        if (extraAddr !== '') {
+                            extraAddr = ' (' + extraAddr + ')';
+                        }
+                        // 조합된 참고항목을 해당 필드에 넣는다.
+                        document.getElementById("address").value = extraAddr;
+                        document.getElementById("postcode").value = data.zonecode;
+
+                    } else {
+                        document.getElementById("address").value = '';
+                    }
+
+                    // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                    //document.getElementById('cstmrZipcode').value = data.zonecode;
+                    document.getElementById("address").value = addr;
                     document.getElementById("postcode").value = data.zonecode;
-	                // 커서를 상세주소 필드로 이동한다.
-	                document.getElementById("address").focus();
-	            }
-	        }).open();
-		
-	}
-  </script>
+                    // 커서를 상세주소 필드로 이동한다.
+                    document.getElementById("address").focus();
+                }
+            }).open();
+
+        }
+    </script>
 </head>
 <body>
 
@@ -227,7 +228,7 @@ http://www.tooplate.com/view/2082-pure-mix
 ================================================== -->
 <div class="preloader">
 
-	<div class="sk-spinner sk-spinner-pulse"></div>
+    <div class="sk-spinner sk-spinner-pulse"></div>
 
 </div>
 
@@ -241,73 +242,95 @@ http://www.tooplate.com/view/2082-pure-mix
 
 <!-- Portfolio section
 ================================================== -->
-<section id="portfolio"style="background-color: #fcf1e3;padding-left: 0px;">
-   <div class="container">
-      <div class="row">
+<section id="portfolio" style="background-color: #fcf1e3;padding-left: 0px;">
+    <div class="container">
+        <div class="row">
 
-         <div class="col-md-12 col-sm-12">
-            
-              
-			<!-- iso section -->
-               <div class="iso-section wow fadeInUp" data-wow-delay="2.6s">
-				   <head th:replace="/common/iso.html"></head>
-               </div>
-               
-          <section id="contact" style="padding-top: 4rem;">
-   			<div class="container">
-               <div class="row">
-                 <div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="1.6s">
-                 			<div style="font-size: 20px;padding-bottom: 40px;display:inline-flex;">
-							<!-- <a href="/loginPage">LOGIN</a> / <a href="/signupPage">SIGNUP</a> -->
-							<button class="form-control submit" style="width:100px;"onclick="location.href='/loginPage'">LOGIN</button><button onclick="location.href='/signupPage'" class="form-control submit"style="width:100px;">SIGNUP</button>
-							</div>
-					<h1>JOIN US</h1>
-					<div class="contact-form">
-						<form id="contact-form" method="post" action="signup">
-						
-						<h3 style="padding-bottom: 20px;">REQUIRED</h3>
-						<a style="color:red;">${message}</a>
-							<input style="background:white;"name="id" id="id" type="text" class="form-control" placeholder="아이디(7~15글자)" required>
-							<input style="background:white;"name="pw" id="pw"  type="password" class="form-control" placeholder="비밀번호(7~15글자)"  required>
-							<input style="background:white;"name="pwcon" id="pwcon"  type="password" class="form-control" placeholder="비밀번호 확인"  required>
-							<input style="background:white;"name="name" id="name"  type="text" class="form-control" placeholder="이름"  required>
-							<div style="display: flex;">
-							<input type="button" class="form-control submit" onclick="searchAddress()" style="background: #111112;color:white;height: 50px;width:100px;" value="주소검색">
-							<input style="background:lightgray;width:100%;"name="postcode" id="postcode"  type="text" class="form-control" placeholder="우편번호" required disabled>
-							</div>
-							<input style="background:lightgray;width:100%;"name="address"id="address"  type="text" class="form-control" placeholder="주소" required disabled>
-							<input style="background:white;"name="addressDetail" id="addressDetail"  type="text" class="form-control" placeholder="상세주소" required>
-							<input style="background:white;"name="phone" id="phone"  type="text" class="form-control" placeholder="연락처(숫자만)"  required>
-							<input style="background:white;"name="email" id="email"  type="email" class="form-control" placeholder="이메일" required>
-						
-						
-						<h3 style="padding-bottom: 20px;font-size:20px;">OPTIONAL</h3>
-							
-							<select style="background:white;" name="gender" id="gender">
-								<option value="${param.gender}">Optional</option>
-								<option value="남자">남자</option>
-								<option value="여자">여자</option>
-								</select>
-							<input style="background:white;"name="birth" id="birth"  type="text" class="form-control" placeholder="생년월일(20010101)">
-							<input style="background:white;" name="sns" id="sns"  type="text" class="form-control" placeholder="SNS">
-							
-							<a id="warning" style="color:red;"></a>
-							<div class="contact-submit" style="width:100%;">
-								<input type="button" onclick="testForm()" class="form-control submit" value="회원가입하기">
-							</div>
-							<a href="/loginPage">LOGIN</a> / <a href="/signupPage">SIGNUP</a>
-						</form>
-					</div>
-					<br>
-					<div style="text-align: center;font-size: 16px;">
-							<input type="checkbox" id="iagree" style="height: 20px;width: 20px;margin:0;"class="checkbox_check"><b>제공 약관을 이해하였으며, 동의합니다.</b>
-							</div>
-			</div>
-			<div class="wow fadeInUp col-md-5 col-sm-6" data-wow-delay="1.6s">
-							<div style="font-size: 20px;padding-bottom: 124px;display:inline-flex;">
-							</div>
-			<br><h3 style="font-size: 20px;">이용약관 동의</h3><br>
-			<textarea style="width:100%;height:300px;border: 1px solid #eee;resize:none;" disabled>
+            <div class="col-md-12 col-sm-12">
+
+
+                <!-- iso section -->
+                <div class="iso-section wow fadeInUp" data-wow-delay="2.6s">
+                    <head th:replace="/common/iso.html"></head>
+                </div>
+
+                <section id="contact" style="padding-top: 4rem;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="1.6s">
+                                <div style="font-size: 20px;padding-bottom: 40px;display:inline-flex;">
+                                    <!-- <a href="/loginPage">LOGIN</a> / <a href="/signupPage">SIGNUP</a> -->
+                                    <button class="form-control submit" style="width:100px;"
+                                            onclick="location.href='/loginPage'">LOGIN
+                                    </button>
+                                    <button onclick="location.href='/signupPage'" class="form-control submit"
+                                            style="width:100px;">SIGNUP
+                                    </button>
+                                </div>
+                                <h1>JOIN US</h1>
+                                <div class="contact-form">
+                                    <form id="contact-form" method="post" action="signup">
+
+                                        <h3 style="padding-bottom: 20px;">REQUIRED</h3>
+                                        <a style="color:red;">${message}</a>
+                                        <input style="background:white;" name="id" id="id" type="text"
+                                               class="form-control" placeholder="아이디(7~15글자)" required>
+                                        <input style="background:white;" name="pw" id="pw" type="password"
+                                               class="form-control" placeholder="비밀번호(7~15글자)" required>
+                                        <input style="background:white;" name="pwcon" id="pwcon" type="password"
+                                               class="form-control" placeholder="비밀번호 확인" required>
+                                        <input style="background:white;" name="name" id="name" type="text"
+                                               class="form-control" placeholder="이름" required>
+                                        <div style="display: flex;">
+                                            <input type="button" class="form-control submit" onclick="searchAddress()"
+                                                   style="background: #111112;color:white;height: 50px;width:100px;"
+                                                   value="주소검색">
+                                            <input style="background:lightgray;width:100%;" name="postcode"
+                                                   id="postcode" type="text" class="form-control" placeholder="우편번호"
+                                                   required disabled>
+                                        </div>
+                                        <input style="background:lightgray;width:100%;" name="address" id="address"
+                                               type="text" class="form-control" placeholder="주소" required disabled>
+                                        <input style="background:white;" name="addressDetail" id="addressDetail"
+                                               type="text" class="form-control" placeholder="상세주소" required>
+                                        <input style="background:white;" name="phone" id="phone" type="text"
+                                               class="form-control" placeholder="연락처(숫자만)" required>
+                                        <input style="background:white;" name="email" id="email" type="email"
+                                               class="form-control" placeholder="이메일" required>
+
+
+                                        <h3 style="padding-bottom: 20px;font-size:20px;">OPTIONAL</h3>
+
+                                        <select style="background:white;" name="gender" id="gender">
+                                            <option value="${param.gender}">Optional</option>
+                                            <option value="남자">남자</option>
+                                            <option value="여자">여자</option>
+                                        </select>
+                                        <input style="background:white;" name="birth" id="birth" type="text"
+                                               class="form-control" placeholder="생년월일(20010101)">
+                                        <input style="background:white;" name="sns" id="sns" type="text"
+                                               class="form-control" placeholder="SNS">
+
+                                        <a id="warning" style="color:red;"></a>
+                                        <div class="contact-submit" style="width:100%;">
+                                            <input type="button" onclick="testForm()" class="form-control submit"
+                                                   value="회원가입하기">
+                                        </div>
+                                        <a href="/loginPage">LOGIN</a> / <a href="/signupPage">SIGNUP</a>
+                                    </form>
+                                </div>
+                                <br>
+                                <div style="text-align: center;font-size: 16px;">
+                                    <input type="checkbox" id="iagree" style="height: 20px;width: 20px;margin:0;"
+                                           class="checkbox_check"><b>제공 약관을 이해하였으며, 동의합니다.</b>
+                                </div>
+                            </div>
+                            <div class="wow fadeInUp col-md-5 col-sm-6" data-wow-delay="1.6s">
+                                <div style="font-size: 20px;padding-bottom: 124px;display:inline-flex;">
+                                </div>
+                                <br>
+                                <h3 style="font-size: 20px;">이용약관 동의</h3><br>
+                                <textarea style="width:100%;height:300px;border: 1px solid #eee;resize:none;" disabled>
 제1조(목적) 
 이 약관은 지니엄이 운영하는 지니엄 사이버 몰(이하 “몰”이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리․의무 및 책임사항을 규정함을 목적으로 합니다.
 ※「PC통신, 무선 등을 이용하는 전자상거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니다.」
@@ -468,9 +491,10 @@ http://www.tooplate.com/view/2082-pure-mix
 ① “몰”과 이용자 간에 발생한 전자상거래 분쟁에 관한 소송은 제소 당시의 이용자의 주소에 의하고, 주소가 없는 경우에는 거소를 관할하는 지방법원의 전속관할로 합니다. 다만, 제소 당시 이용자의 주소 또는 거소가 분명하지 않거나 외국 거주자의 경우에는 민사소송법상의 관할법원에 제기합니다.
 ② “몰”과 이용자 간에 제기된 전자상거래 소송에는 한국법을 적용합니다.
 </textarea>
-			
-			<br><h3 style="font-size: 20px;padding-top:20px;">개인정보 수집 및 이용 동의</h3><br>
-<textarea style="width:100%;height:350px;border: 1px solid #eee;resize:none;" disabled>
+
+                                <br>
+                                <h3 style="font-size: 20px;padding-top:20px;">개인정보 수집 및 이용 동의</h3><br>
+                                <textarea style="width:100%;height:350px;border: 1px solid #eee;resize:none;" disabled>
 1. 총칙
 
 지니엄 사이트는 회원의 개인정보보호를 소중하게 생각하고, 회원의 개인정보를 보호하기 위하여 항상 최선을 다해 노력하고 있습니다. 
@@ -540,13 +564,15 @@ http://www.tooplate.com/view/2082-pure-mix
 
 ** 동의를 거부할 수 있으나 거부시 회원가입이 불가능합니다.
 </textarea>
-			</div>
-		</div></div></section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-         </div>
+            </div>
 
-      </div>
-   </div>
+        </div>
+    </div>
 </section>
 
 <head th:replace="/common/footer.html"></head>
