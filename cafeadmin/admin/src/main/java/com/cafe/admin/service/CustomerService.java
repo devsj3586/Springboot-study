@@ -17,7 +17,6 @@ public class CustomerService {
     CustomerRepository repo;
     @Autowired
     HttpSession session;
-
     //이번 예제는 String을 반환하며, 무조건 성공시에는 "success", 실패시에는 "failed"를 반환합니다.
     //admin 계정이 있는지 확인 합니다. id와 password 가 일치 하면 admin이라는 이름으로 세션에 넣습니다.
     public String selectAdmin(AdminDTO adminDTO) {
