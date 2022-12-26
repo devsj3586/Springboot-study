@@ -8,4 +8,36 @@
         where id = (#{id})
           and password = (#{password})
     </select>
+
+    <select id="selectAllCustomers" resultType="com.cafe.admin.dto.CustomerDTO">
+        SELECT id,
+               pw,
+               name,
+               phone,
+               address,
+               ismem,
+               indate,
+               gender,
+               email,
+               birth,
+               sns
+        FROM customer
+    </select>
+
+    <update id="customerStatus" parameterType="com.cafe.admin.dto.CustomerDTO">
+        UPDATE customer
+        SET ismem = #{ismem}
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectOrderBook" resultType="com.cafe.admin.dto.OrderDTO">
+        SELECT id,
+               userid,
+               name,
+               phone,
+               address,
+               addressdetail
+               indate,
+        FROM orderbook
+    </select>
 </mapper>

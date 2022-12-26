@@ -11,11 +11,11 @@ import lombok.Setter;
 @Getter
 public class OrderDTO {
     private int id;
-    private String userId;
+    private String userid;
     private String name;
     private String phone;
     private String address;
-    private String addressDetail;
+    private String addressdetail;
     private String indate;
     private String productName;
     private int price;

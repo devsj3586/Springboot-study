@@ -16,7 +16,6 @@ public class CategoryRepository {
         return mapper.selectCategories();
     }
 
-
     public int deleteCategories(CategoryDTO categoryDTO) {
         return mapper.deleteCategories(categoryDTO);
     }
