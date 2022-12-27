@@ -77,6 +77,7 @@ public class ProductService {
     //Swagger 문서를 참고하여 넣을 값 정리 합니다.
     public String insertSellTimes(SellTimeDTO sellTimeDTO) {
         int result = 0;
+        result = repo.insertSellTimes(sellTimeDTO);
         if (result == 1) {
             return "success";
         } else {
@@ -88,6 +89,7 @@ public class ProductService {
     //Swagger 문서를 참고하여 넣을 값 정리 합니다.
     public String deleteSellTimes(SellTimeDTO sellTimeDTO) {
         int result = 0;
+        result = repo.deleteSellTimes(sellTimeDTO);
         if (result == 1) {
             return "success";
         } else {
@@ -97,8 +99,7 @@ public class ProductService {
 
     //SellTime 전체를 반환합니다.
     public List<SellTimeDTO> selectSellTimes() {
-        return null;
-
+        return repo.selectSellTimes();
     }
 
 }

@@ -40,23 +40,45 @@
     </delete>
 
     <insert id="insertProducts" parameterType="com.cafe.admin.dto.ProductDTO">
-        INSERT INTO product (productname, thumb, status, price, amount, summary, content, markettype,
-                             ordernum)
-        VALUES (#{productname}, #{thumb}, #{status}, #{price}, #{amount}, #{summary}, #{content},
-                #{markettype}, #{ordernum})
+        INSERT INTO product (productName, thumb, status, price, amount, summary, content, marketType,
+                             orderNum)
+        VALUES (#{productName}, #{thumb}, #{status}, #{price}, #{amount}, #{summary}, #{content},
+                #{marketType}, #{orderNum})
     </insert>
 
     <update id="updateProducts" parameterType="com.cafe.admin.dto.ProductDTO">
         UPDATE product
-        SET productname = #{productname},
+        SET productName = #{productName},
             thumb       = #{thumb},
             status      = #{status},
             price       = #{price},
             amount      = #{amount},
             summary     = #{summary},
             content     = #{content},
-            ordernum    = #{ordernum}
+            orderNum    = #{orderNum}
         WHERE id = #{id}
     </update>
+
+    <insert id="insertSellTimes" parameterType="com.cafe.admin.dto.SellTimeDTO">
+        INSERT INTO selltime (startTime, endTime)
+        VALUES (#{startTime}, #{endTime})
+    </insert>
+
+    <delete id="deleteSellTimes" parameterType="com.cafe.admin.dto.SellTimeDTO">
+        DELETE
+        FROM selltime
+        WHERE id = #{id}
+    </delete>
+
+    <select id="selectSellTimes" resultType="com.cafe.admin.dto.SellTimeDTO">
+        SELECT id, startTime, endTime, indate
+        FROM startTime
+        WHERE id = #{id}
+    </select>
+
+    <insert id="insertCatemaps" parameterType="com.cafe.admin.dto.ProductDTO">
+        INSERT INTO catemap (cateId, etcid, etctable)
+        VALUES (#{cateId}, #{id}, 'PRODUCT')
+    </insert>
 
 </mapper>
