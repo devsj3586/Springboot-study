@@ -17,12 +17,12 @@ public class ProductService {
 
     //전체 제품 리스트를 반환합니다.
     public List<ProductDTO> selectProducts() {
-        return null;
+        return repo.selectProducts();
     }
 
     //특정 제품을 반환합니다. id를 기준으로 반환합니다.
     public ProductDTO selectProduct(String id) {
-        return null;
+        return repo.selectProduct(id);
     }
 
     //카테고리 맵핑(CATEMAP) 테이블을 선 삭제 한 후, 제품(PRODUCT)를 삭제 합니다.
@@ -31,6 +31,9 @@ public class ProductService {
     @Transactional
     public String deleteProducts(ProductDTO productDTO) {
         int result = 0;
+        result += repo.deleteCatemaps(productDTO);
+        result += repo.deleteProducts(productDTO);
+
         if (result > 0) {
             return "success";
         } else {
@@ -57,6 +60,8 @@ public class ProductService {
     @Transactional
     public String insertProducts(ProductDTO productDTO) {
         int result = 0;
+        result += repo.insertProducts(productDTO);
+        result += repo.insertCatemaps(productDTO);
         if (result > 0) {
             return "success";
         } else {
