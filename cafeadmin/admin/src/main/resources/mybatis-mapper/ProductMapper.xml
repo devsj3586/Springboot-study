@@ -45,4 +45,18 @@
         VALUES (#{productname}, #{thumb}, #{status}, #{price}, #{amount}, #{summary}, #{content},
                 #{markettype}, #{ordernum})
     </insert>
+
+    <update id="updateProducts" parameterType="com.cafe.admin.dto.ProductDTO">
+        UPDATE product
+        SET productname = #{productname},
+            thumb       = #{thumb},
+            status      = #{status},
+            price       = #{price},
+            amount      = #{amount},
+            summary     = #{summary},
+            content     = #{content},
+            ordernum    = #{ordernum}
+        WHERE id = #{id}
+    </update>
+
 </mapper>

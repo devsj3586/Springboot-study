@@ -48,6 +48,10 @@ public class ProductService {
     @Transactional
     public String updateProducts(ProductDTO productDTO) {
         int result = 0;
+        result += repo.deleteCatemaps(productDTO);
+        result += repo.insertCatemaps(productDTO);
+        result += repo.updateProducts(productDTO);
+
         if (result > 0) {
             return "success";
         } else {
