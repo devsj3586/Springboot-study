@@ -26,8 +26,10 @@ public class CategoryService {
     @Transactional
     public String deleteCategories(CategoryDTO categoryDTO) {
         int result = 0;
+        result += repo.deleteCatemaps(categoryDTO);
+        result += repo.deleteCategories(categoryDTO);
 
-        if (result == 1) {
+        if (result > 0 ) {
             return "success";
         } else {
             return "failed";
