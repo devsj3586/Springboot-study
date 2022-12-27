@@ -14,8 +14,21 @@
         WHERE id = #{id}
     </delete>
     <delete id="deleteCatemaps" parameterType="com.cafe.admin.dto.CategoryDTO">
-        DELETE FROM catemap WHERE cateid=#{id}
-                              AND etctable='PRODUCT'
+        DELETE
+        FROM catemap
+        WHERE cateid = #{id}
+          AND etctable = 'PRODUCT'
     </delete>
+    <insert id="insertCategories" parameterType="com.cafe.admin.dto.CategoryDTO">
+        INSERT INTO category (catename, catetype)
+        VALUES (#{catename}, '제품')
+
+    </insert>
+
+    <update id="updateCategories" parameterType="com.cafe.admin.dto.CategoryDTO">
+        UPDATE category
+        SET catename = #{catename}
+        WHERE id = #{id}
+    </update>
 </mapper>
 
