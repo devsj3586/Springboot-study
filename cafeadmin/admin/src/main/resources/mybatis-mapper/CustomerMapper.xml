@@ -36,8 +36,21 @@
                name,
                phone,
                address,
-               addressdetail
-               indate,
+               addressdetail,
+               indate
         FROM orderbook
+
+    </select>
+
+    <select id="selectOrderDetail" resultType="com.cafe.admin.dto.OrderDTO" parameterType="com.cafe.admin.dto.OrderDTO">
+        SELECT id,
+               userid,
+               indate,
+               orderid,
+               (SELECT PRODUCTNAME FROM PRODUCT WHERE ID=PRODUCTID) productName,
+               price,
+               amount
+        FROM orderdetail
+        WHERE id = #{id}
     </select>
 </mapper>

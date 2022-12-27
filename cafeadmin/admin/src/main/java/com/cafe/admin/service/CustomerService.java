@@ -47,6 +47,6 @@ public class CustomerService {
 
     //고객의 주문상세를 반환합니다. orderDTO의 id 기준으로 가져옵니다.
     public List<OrderDTO> selectOrderDetail(OrderDTO orderDTO) {
-        return null;
+        return repo.selectOrderDetail(orderDTO);
     }
 }
