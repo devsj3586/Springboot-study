@@ -5,9 +5,28 @@
 
     <insert id="signup" parameterType="com.example.shop.member.dto.Member">
         INSERT INTO customer
-        (id, pw, name, phone, address, email, gender, sns, birth, addressDetail, postcode)
-        VALUES (#{id}, #{pw}, #{name}, #{phone}, #{address}, #{email}, #{gender}, #{sns}, #{birth},
-                #{addressDetail}, #{postcode})
+        (id,
+         pw,
+         name,
+         phone,
+         address,
+         email,
+         gender,
+         sns,
+         birth,
+         addressDetail,
+         postcode)
+        VALUES (#{id},
+                #{pw},
+                #{name},
+                #{phone},
+                #{address},
+                #{email},
+                #{gender},
+                #{sns},
+                #{birth},
+                #{addressDetail},
+                #{postcode})
     </insert>
 
     <select id="login" parameterType="com.example.shop.member.dto.Member"
@@ -21,9 +40,9 @@
                gender,
                sns,
                birth,
-               addressdetail,
+               addressDetail,
                postcode
-        FROM CUSTOMER
+        FROM customer
         WHERE id = #{id}
           AND pw = #{pw}
           AND ismem = 'Y'

@@ -14,8 +14,7 @@ public class Member {
     private String addressDetail;
     private String postcode;
 
-    public Member() {
-    }
+    public Member() {}
 
     public Member(String id, String pw, String name, String phone, String address, String email, String gender, String sns, String birth, String addressDetail, String postcode) {
         this.id = id;
@@ -117,22 +116,5 @@ public class Member {
 
     public void setPostcode(String postcode) {
         this.postcode = postcode;
-    }
-
-    @Override
-    public String toString() {
-        return "Member{" +
-                "id='" + id + '\'' +
-                ", pw='" + pw + '\'' +
-                ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", email='" + email + '\'' +
-                ", gender='" + gender + '\'' +
-                ", sns='" + sns + '\'' +
-                ", birth='" + birth + '\'' +
-                ", addressDetail='" + addressDetail + '\'' +
-                ", postcode='" + postcode + '\'' +
-                '}';
     }
 }

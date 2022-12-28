@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cafe.shop.mapper.ProductMapper">
 
-    <select id="selectProduct" parameterType="com.cafe.example.util.SearchDto"
-            resultType="com.cafe.shop.product.dto.Product">
-        SELECT ID,PRODUCTNAME,THUMB,STATUS,AMOUNT,PRICE,CONTENT,SUMMARY,INDATE,MARKETTYPE,
+<mapper namespace="com.example.shop.mapper.ProductMapper">
+
+    <select id="selectProduct" parameterType="com.example.shop.util.SearchDto"
+            resultType="com.example.shop.product.dto.Product">
+        SELECT id,productName,thumb,status,amount,price,content,summary,indate,marketType,
 
         ( SELECT CATENAME FROM CATEGORY WHERE ID=(SELECT CATEID FROM CATEMAP WHERE ETCTABLE='PRODUCT' AND ETCID=A.ID))
-        CATENAME,
+        catename
         if(((MARKETTYPE='기간판매' and ((select count(*) from SELLTIME where (select NOW() from dual)
         BETWEEN starttime and endtime)>0))
 
@@ -43,7 +44,7 @@
         LIMIT #{pagination.limitStart}, #{recordSize}
     </select>
 
-    <select id="count" parameterType="com.cafe.example.util.SearchDto" resultType="int">
+    <select id="count" parameterType="com.example.shop.product.dto.Product" resultType="int">
         SELECT
         COUNT(*)
         FROM
