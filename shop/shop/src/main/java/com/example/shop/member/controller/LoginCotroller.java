@@ -37,6 +37,7 @@ public class LoginCotroller {
         }
         return "failed";
     }
+
     @PostMapping("/checkLogin")
     public String checkLogin(HttpSession session) {
 

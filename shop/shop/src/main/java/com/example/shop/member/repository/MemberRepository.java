@@ -22,26 +22,33 @@ public class MemberRepository {
     public Member login(Member member) {
         return mapper.login(member);
     }
-    public List<HashMap<String,Object>> selectUserCart(String id){
+
+    public List<HashMap<String, Object>> selectUserCart(String id) {
         return mapper.selectUserCart(id);
     }
-    public List<HashMap<String,Object>>  selectCart(String id){
+
+    public List<HashMap<String, Object>> selectCart(String id) {
         return mapper.selectCart(id);
     }
-    public int updateCartAmount(Map<String,String> param){
+
+    public int updateCartAmount(Map<String, String> param) {
         return mapper.updateCartAmount(param);
     }
-    public int insertCart(Map<String,String> param){
+
+    public int insertCart(Map<String, String> param) {
         return mapper.insertCart(param);
 
     }
-    public int selectAvailAmount(Map<String,String> param){
+
+    public int selectAvailAmount(Map<String, String> param) {
         return mapper.selectAvailAmount(param);
     }
-    public int deleteCart(Map<String,String> param){
+
+    public int deleteCart(Map<String, String> param) {
         return mapper.deleteCart(param);
     }
-    public int deleteCartAll(String param){
+
+    public int deleteCartAll(String param) {
         return mapper.deleteCartAll(param);
     }
 
@@ -61,6 +68,7 @@ public class MemberRepository {
         return mapper.selectOrderBook(id);
 
     }
+
     public List<HashMap<String, Object>> selectOrderDetail(HashMap<String, String> params) {
         return mapper.selectOrderDetail(params);
 

@@ -1,5 +1,6 @@
 package com.example.shop.product.Controller;
 
+import com.example.shop.member.dto.Member;
 import com.example.shop.member.service.MemberService;
 import com.example.shop.product.dto.Product;
 import com.example.shop.product.dto.ProductList;
@@ -25,13 +26,13 @@ public class ProductController {
 
 
     @GetMapping("/productList")
-    public String productList(SearchDto params, Model model, HttpSession session) {
+    public String productList(SearchDto searchdto, Model model, HttpSession session) {
         List<HashMap<String, String>> par = new ArrayList<HashMap<String, String>>();
-        ProductList product = ps.findAll(params);
+        ProductList product = ps.findAll(searchdto);
         model.addAttribute("product", product);
-        String key=params.getKeyword();
+        String key = searchdto.getKeyword();
         if (session.getAttribute("id") != null) {
-            List<HashMap<String, Object>> cList = ms.selectUserCart(((Member)session.getAttribute("id")).getId());
+            List<HashMap<String, Object>> cList = ms.selectUserCart(((Member) session.getAttribute("id")).getId());
             model.addAttribute("cartList", cList);
             for (Map<String, Object> component : cList) {
                 HashMap<String, String> comMap = new HashMap<String, String>();
@@ -44,21 +45,21 @@ public class ProductController {
         }
 
         model.addAttribute("paramText", par);
-        if(key!=null){
-            model.addAttribute("keyword", params.getKeyword());
+        if (key != null) {
+            model.addAttribute("keyword", searchdto.getKeyword());
         }
 
         return "productlist";
     }
 
     @GetMapping("/orderList")
-    public String orderList(HttpSession session,Model m) {
+    public String orderList(HttpSession session, Model m) {
         List<Map<String, Object>> param = new ArrayList<Map<String, Object>>();
         String userid = null;
         Map<String, String> accParam = new HashMap<>();
         if (session.getAttribute("id") != null) {
 
-            userid=((Member) session.getAttribute("id")).getId();
+            userid = ((Member) session.getAttribute("id")).getId();
         }
         List<HashMap<String, Object>> cList = ms.selectOrderBook(userid);
         m.addAttribute("orderList", cList);
