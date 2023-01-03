@@ -22,6 +22,7 @@ public class LoginController {
             @ApiImplicitParam(name = "id", value = "어드민 id", required = true),
             @ApiImplicitParam(name = "password", value = "어드민 pw", required = true)
     })
+
     @PostMapping("/login")
     public String login(AdminDTO adminDTO) {
         return cs.selectAdmin(adminDTO);

@@ -17,9 +17,13 @@ public class ExampleService {
     ExampleRepository repo;
 
     //JAP insert 문
-    public ExampleResDTO merge(ExampleReqDTO req) { // 메서드명 merge(경합)
+    // 메서드명 merge(경합) pk(PRIMARY KEY) 가 있으면 업데이트 , 없으면 insert
+    //
+    public ExampleResDTO merge(ExampleReqDTO req) {
+        // Example ex 변수 생성
         Example ex = req.toEntity();
-        ex = repo.save(ex); // pk(PRIMARY KEY) 가 있으면 업데이트 , 없으면 insert
+        // pk(PRIMARY KEY) 가 있으면 업데이트 , 없으면 insert
+        ex = repo.save(ex);
         return new ExampleResDTO(ex.getName());
     }
 
@@ -27,10 +31,14 @@ public class ExampleService {
     public List<ExampleResDTO> selectAll() {   // stream  AIP 많이 사용.
 
         List<Example> result = repo.findAll();
-
-        List<ExampleResDTO> resList = result.stream()   // for 문이 많으면 직관적으로 알기 힘듬 stream 사용
-                .map(ex -> new ExampleResDTO(ex.getName())) //map : example entity 를  변환
-                .collect(Collectors.toList());      //collect 변활할때쓰는것   list로 변경해 반환
+        // for 문이 많으면 직관적으로 알기 힘듬 stream 사용
+        // findAll 하면 entity 형식으로 다 가져오기때문에 m
+        //map : example entity 를  변환
+        //collect 변활할때쓰는것   list로 변경해 반환
+        //응답DTO를 List 형식으로 받는 resList 변수에 스트림
+        List<ExampleResDTO> resList = result.stream()
+                .map(ex -> new ExampleResDTO(ex.getName()))
+                .collect(Collectors.toList());
 
         return resList;
     }

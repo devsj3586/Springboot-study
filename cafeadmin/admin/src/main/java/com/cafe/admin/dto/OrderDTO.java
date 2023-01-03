@@ -1,14 +1,12 @@
 package com.cafe.admin.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
+@ToString
 public class OrderDTO {
     private int id;
     private String userid;

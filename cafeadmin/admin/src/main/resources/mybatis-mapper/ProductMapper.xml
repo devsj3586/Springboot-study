@@ -1,84 +1,84 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"-->
+<!--        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
 
-<mapper namespace="com.cafe.admin.mapper.ProductMapper">
-    <select id="selectProducts" resultType="com.cafe.admin.dto.ProductDTO">
-        SELECT id,
-               productName,
-               thumb,
-               price,
-               status,
-               amount,
-               content,
-               summary,
-               marketType,
-               indate,
-               ordernum
-        FROM product
-    </select>
+<!--<mapper namespace="com.cafe.admin.mapper.ProductMapper">-->
+<!--    <select id="selectProducts" resultType="com.cafe.admin.dto.ProductDTO">-->
+<!--        SELECT id,-->
+<!--               productName,-->
+<!--               thumb,-->
+<!--               price,-->
+<!--               status,-->
+<!--               amount,-->
+<!--               content,-->
+<!--               summary,-->
+<!--               marketType,-->
+<!--               indate,-->
+<!--               ordernum-->
+<!--        FROM product-->
+<!--    </select>-->
 
-    <select id="selectProduct" resultType="String">
-        SELECT id,
-               productName,
-               thumb,
-               price,
-               status,
-               amount,
-               content,
-               summary,
-               marketType,
-               indate,
-               ordernum
-        FROM product
-        WHERE id = #{id}
-    </select>
+<!--    <select id="selectProduct" resultType="String">-->
+<!--        SELECT id,-->
+<!--               productName,-->
+<!--               thumb,-->
+<!--               price,-->
+<!--               status,-->
+<!--               amount,-->
+<!--               content,-->
+<!--               summary,-->
+<!--               marketType,-->
+<!--               indate,-->
+<!--               ordernum-->
+<!--        FROM product-->
+<!--        WHERE id = #{id}-->
+<!--    </select>-->
 
-    <delete id="deleteProducts" parameterType="com.cafe.admin.dto.ProductDTO">
-        DELETE
-        FROM product
-        WHERE id = #{id}
-    </delete>
+<!--    <delete id="deleteProducts" parameterType="com.cafe.admin.dto.ProductDTO">-->
+<!--        DELETE-->
+<!--        FROM product-->
+<!--        WHERE id = #{id}-->
+<!--    </delete>-->
 
-    <insert id="insertProducts" parameterType="com.cafe.admin.dto.ProductDTO">
-        INSERT INTO product (productName, thumb, status, price, amount, summary, content, marketType,
-                             orderNum)
-        VALUES (#{productName}, #{thumb}, #{status}, #{price}, #{amount}, #{summary}, #{content},
-                #{marketType}, #{orderNum})
-    </insert>
+<!--    <insert id="insertProducts" parameterType="com.cafe.admin.dto.ProductDTO">-->
+<!--        INSERT INTO product (productName, thumb, status, price, amount, summary, content, marketType,-->
+<!--                             orderNum)-->
+<!--        VALUES (#{productName}, #{thumb}, #{status}, #{price}, #{amount}, #{summary}, #{content},-->
+<!--                #{marketType}, #{orderNum})-->
+<!--    </insert>-->
 
-    <update id="updateProducts" parameterType="com.cafe.admin.dto.ProductDTO">
-        UPDATE product
-        SET productName = #{productName},
-            thumb       = #{thumb},
-            status      = #{status},
-            price       = #{price},
-            amount      = #{amount},
-            summary     = #{summary},
-            content     = #{content},
-            orderNum    = #{orderNum}
-        WHERE id = #{id}
-    </update>
+<!--    <update id="updateProducts" parameterType="com.cafe.admin.dto.ProductDTO">-->
+<!--        UPDATE product-->
+<!--        SET productName = #{productName},-->
+<!--            thumb       = #{thumb},-->
+<!--            status      = #{status},-->
+<!--            price       = #{price},-->
+<!--            amount      = #{amount},-->
+<!--            summary     = #{summary},-->
+<!--            content     = #{content},-->
+<!--            orderNum    = #{orderNum}-->
+<!--        WHERE id = #{id}-->
+<!--    </update>-->
 
-    <insert id="insertSellTimes" parameterType="com.cafe.admin.dto.SellTimeDTO">
-        INSERT INTO selltime (startTime, endTime)
-        VALUES (#{startTime}, #{endTime})
-    </insert>
+<!--    <insert id="insertSellTimes" parameterType="com.cafe.admin.dto.SellTimeDTO">-->
+<!--        INSERT INTO selltime (startTime, endTime)-->
+<!--        VALUES (#{startTime}, #{endTime})-->
+<!--    </insert>-->
 
-    <delete id="deleteSellTimes" parameterType="com.cafe.admin.dto.SellTimeDTO">
-        DELETE
-        FROM selltime
-        WHERE id = #{id}
-    </delete>
+<!--    <delete id="deleteSellTimes" parameterType="com.cafe.admin.dto.SellTimeDTO">-->
+<!--        DELETE-->
+<!--        FROM selltime-->
+<!--        WHERE id = #{id}-->
+<!--    </delete>-->
 
-    <select id="selectSellTimes" resultType="com.cafe.admin.dto.SellTimeDTO">
-        SELECT id, startTime, endTime, indate
-        FROM startTime
-        WHERE id = #{id}
-    </select>
+<!--    <select id="selectSellTimes" resultType="com.cafe.admin.dto.SellTimeDTO">-->
+<!--        SELECT id, startTime, endTime, indate-->
+<!--        FROM startTime-->
+<!--        WHERE id = #{id}-->
+<!--    </select>-->
 
-    <insert id="insertCatemaps" parameterType="com.cafe.admin.dto.ProductDTO">
-        INSERT INTO catemap (cateId, etcid, etctable)
-        VALUES (#{cateId}, #{id}, 'PRODUCT')
-    </insert>
+<!--    <insert id="insertCatemaps" parameterType="com.cafe.admin.dto.ProductDTO">-->
+<!--        INSERT INTO catemap (cateId, etcid, etctable)-->
+<!--        VALUES (#{cateId}, #{id}, 'PRODUCT')-->
+<!--    </insert>-->
 
-</mapper>
+<!--</mapper>-->

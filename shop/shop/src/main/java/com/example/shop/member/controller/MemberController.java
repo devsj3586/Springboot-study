@@ -40,9 +40,9 @@ public class MemberController {
         Map<String, String> accParam = new HashMap<>();
 
         if (session.getAttribute("id") != null) {
-            //Map<String, String> account = (Map<String, String>) session.getAttribute("id");
-            // userid = account.get("ID");
-            // accParam.put("userid", userid);
+            Map<String, String> account = (Map<String, String>) session.getAttribute("id");
+             userid = account.get("ID");
+             accParam.put("userid", userid);
         } else {
             return "loginFail";
         }
